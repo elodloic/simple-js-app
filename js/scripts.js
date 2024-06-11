@@ -4,10 +4,11 @@ const pokemonList = [
     {name: 'Butterfree', height: 1.1, types: ['bug', 'flying']},
 ];
 
-for (let i = 0; i < pokemonList.length; i++) 
-    if (pokemonList[i].height >= 1) {
-        document.write(`<p>${pokemonList[i].name} (height: ${pokemonList[i].height}) - Wow, that’s big!</p>`);
+function listArray(pokemon) {
+    if (pokemon.height >= 1) {
+        document.write(`<p>${pokemon.name} (height: ${pokemon.height}) - Wow, that’s big!</p>`);
     }
     else {
-        document.write(`<p>${pokemonList[i].name} (height: ${pokemonList[i].height})</p>`);
+        document.write(`<p>${pokemon.name} (height: ${pokemon.height})</p>`);}
     }
+  pokemonList.forEach(listArray);
