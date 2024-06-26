@@ -19,11 +19,21 @@ let pokemonRepository = (function () {
       };
     })();
 
-function listArray(pokemon) {
-    if (pokemon.height >= 1) {
-        document.write(`<p>${pokemon.name} (height: ${pokemon.height}) - Wow, that’s big!</p>`);
+
+    function showDetails(pokemon) {
+      console.log(pokemon)
     }
-    else {
-        document.write(`<p>${pokemon.name} (height: ${pokemon.height})</p>`);}
-    }
-    pokemonRepository.getAll().forEach(listArray);
+
+    function addListItem(pokemon) {
+      let container = document.querySelector('.pokemon-list');
+      let listItem = document.createElement('li')
+      let button = document.createElement('button')
+      button.innerText = pokemon.name;
+      button.classList.add('pokemon-card');
+      listItem.appendChild(button);
+      container.appendChild(listItem);
+      button.addEventListener('click', function (event) {
+        showDetails(pokemon); 
+        })}
+
+    pokemonRepository.getAll().forEach(addListItem);
