@@ -42,7 +42,7 @@ let pokemonRepository = (function () {
   function addListItem(pokemon) {
     let container = document.querySelector('.pokemon-list');
     let listItem = document.createElement('div');
-    listItem.classList.add('col-12', 'col-md-4', 'mb-3');
+    listItem.classList.add('col-12', 'col-md-4', 'col-sm-6', 'mb-1', 'list-group-item', 'border-0');
 
     let button = document.createElement('button');
     button.innerText = pokemon.name;
