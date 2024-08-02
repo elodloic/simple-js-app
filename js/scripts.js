@@ -67,9 +67,18 @@ let pokemonRepository = (function () {
 })();
 
 function showDetails(pokemon) {
+  clearModal();
   pokemonRepository.loadDetails(pokemon).then(function () {
     showModal(pokemon);
   });
+}
+
+function clearModal() {
+  let modalTitle = document.querySelector('.modal-title');
+  let modalBody = document.querySelector('.modal-body');
+
+  modalTitle.innerText = 'Loading...';
+  modalBody.innerHTML = '<div class="text-center"><div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div></div>';
 }
 
 function showModal(pokemon) {
